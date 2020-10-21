@@ -1,5 +1,6 @@
 #include <iostream>
 
+
 class Date{
 public:
     Date() = default;
@@ -54,3 +55,7 @@ public:
     void PrintRecord(Record R);
     ~Record() = default;
 };
+
+void add_item_at_end(Date d, Services s, Part p, Payment pm);
+void remove_item_at_front();
+void print_list();

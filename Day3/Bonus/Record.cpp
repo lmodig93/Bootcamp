@@ -1,7 +1,44 @@
-#ifndef BONUS_H
-#define BONUS_H
 #include "Bonus.h"
 
+void LinkedList::remove_item_at_front(){
+    item_t *temp;
+    if(start_ptr == NULL){
+        std::cout << "List is empty!" << std::endl;
+        return;
+    }
+    temp = this->start_ptr;
+    start_ptr = start_ptr->next;
+    delete temp;
+}
+
+void LinkedList::print_list(){
+    item_t *temp;
+    if(this->start_ptr == NULL){
+        std::cout << "List is empty!" << std::endl;
+        return;
+    }
+    temp = this->start_ptr;
+    temp->R.PrintRecord(temp->R);
+    while(temp->next != NULL){
+        temp = temp->next;
+        temp->R.PrintRecord(temp->R);
+    }
+}
+
+void LinkedList::add_item_at_end(Record R){
+    item_t *temp, *temp2;
+    temp = new item_t;
+    temp->R = R;
+    temp->next = NULL;
+    if(this->start_ptr == NULL)
+         this->start_ptr = temp;
+    else{
+        temp2 = start_ptr;
+        while(temp2->next != NULL)
+            temp2 = temp2->next;
+        temp2->next = temp;
+    }
+}
 void Record::PrintRecord(Record R){
     std::cout << "Date: " << R.date.year << "-" << R.date.month << "-" << R.date.day << std::endl;
     if(R.service.service == Services::ServiceType::oil) std::cout << "Service performed: Oil." << std::endl;
@@ -16,7 +53,6 @@ void Record::PrintRecord(Record R){
     if(R.payment.method == Payment::PaymentMethod::cash) std::cout << " and customer paid with cash." << std::endl;
     if(R.payment.method == Payment::PaymentMethod::creditcard) std::cout << " and customer paid with a credicard." << std::endl;
     std::cout << "--------------------------------------------------------" << std::endl;
-
 }
 
 Record::Record(Date d, Services s, Part p, Payment pm){
@@ -52,4 +88,3 @@ Date::Date(const unsigned int &_y, const unsigned int &_m, const unsigned int &_
 Services::Services(const ServiceType &_service){
     this->service = _service;
 }
-#endif

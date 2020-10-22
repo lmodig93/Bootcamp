@@ -1,5 +1,6 @@
+#ifndef BONUS_H
+#define BONUS_H
 #include <iostream>
-
 
 class Date{
 public:
@@ -56,6 +57,21 @@ public:
     ~Record() = default;
 };
 
-void add_item_at_end(Date d, Services s, Part p, Payment pm);
-void remove_item_at_front();
-void print_list();
+class LinkedList{
+    public:
+        LinkedList(){
+            start_ptr = nullptr;
+        }
+        typedef struct item{
+            Record R;
+            item *next;
+        }item_t;
+        void add_item_at_end(Record R);
+        void print_list();
+        void remove_item_at_front();
+    private:
+        item_t *start_ptr;
+
+};
+
+#endif

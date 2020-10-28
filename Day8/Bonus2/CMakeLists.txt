@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.5.1)
+project(pcap)
+include(FindPCAP.cmake)
+link_libraries(${PCAP_LIBRARY})
+add_executable(pcap main.cpp)
+target_link_libraries(pcap pcapOpenner)
+target_link_directories(pcap PUBLIC .)

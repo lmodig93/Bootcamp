@@ -87,7 +87,8 @@ void testoperatorbigger(){
     }
         std::cout << "Operatorbigger failed." << std::endl;
     }
-    delete s1, s2;
+    delete s1;
+    delete s2;
 }
 
 void testoperatorsmaller(){
@@ -120,7 +121,8 @@ void testoperatorsmaller(){
     else{
         std::cout << "Operatorsmaller failed." << std::endl;
     }
-    delete s1, s2;
+    delete s1;
+    delete s2;
 }
 
 void testoperatorequal(){
@@ -148,7 +150,8 @@ void testoperatorequal(){
     else{
         std::cout << "Operatorequal failed." << std::endl;
     }
-    delete s1, s2;
+    delete s1;
+    delete s2;
 }
 
 void testarea(){
@@ -195,7 +198,10 @@ void testarea(){
     else{
         std::cout << "Area functions failed." << std::endl;
     }
-    delete s1, s2, s3, s4;
+    delete s1;
+    delete s2;
+    delete s3;
+    delete s4;
 }
 
 void testperimeter(){
@@ -242,6 +248,9 @@ void testperimeter(){
     else{
         std::cout << "Perimeter functions failed." << std::endl;
     }
-    delete s1, s2, s3, s4;
+    delete s1;
+    delete s2;
+    delete s3;
+    delete s4;
 }
 #endif //TESTSHAPE_H
